@@ -1,1 +1,2 @@
-//your JS code here. If required.
+window.onload = function() {
+    document.getElementsByClassName("code-container").focus();
