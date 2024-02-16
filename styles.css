@@ -7,11 +7,11 @@
         #container{
             display: flex;
             flex-direction: column;
-            justify-content: space-evenly;
+            justify-content: space-around;
             align-items: center;
             margin: auto;
-            width: calc(100% - 30vw);
-            height: calc(100% - 10vw);
+            min-width: calc(100% - 20vw);
+            min-height: calc(100% - 30vw);
             
             text-align: center;
             border: 2px solid black;
@@ -23,7 +23,11 @@
             left: 50%;
             transform: translate(-50%, -50%);
             padding: 10px;
-        }        
+        }
+#verification_heading{
+	font-size:25px;
+	font-weight:600;
+}
         .mess{
             background-color: rgb(232, 230, 230);
             color: rgb(146, 145, 145);
