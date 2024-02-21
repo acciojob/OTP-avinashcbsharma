@@ -1,7 +1,7 @@
 const inputs = document.querySelectorAll('input');
     console.log(inputs);
     inputs.forEach((code,idx) => {
-        inputs.addEventListener("keyup",(e) => {
+        inputs.addEventListener("keydown",(e) => {
             
             if( e.key >=0 && e.key <=9){
                 
