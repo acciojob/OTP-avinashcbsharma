@@ -1,14 +1,18 @@
-function handleInput(currentInput) {
-    const maxLength = parseInt(currentInput.getAttribute('maxlength'));
-    const currentInputId = currentInput.id;
+const cde = document.querySelectorAll('.code');
+    cde[0].focus();
+    
+    cde.forEach((code,idx) => {
+        code.addEventListener("keydown",(e) => {
+            
+            if( e.key >=0 && e.key <=9){
+                
+                cde[idx + 1].focus();
+                setTimeout(()=>cde[idx + 1].focus(),10);
 
-    if (currentInput.value.length === maxLength) {
-      
-        const nextInputId = "digit" + (parseInt(currentInputId.charAt(currentInputId.length - 1)) + 1);
-        document.getElementById(nextInputId)?.focus();
-    } else if (currentInput.value.length === 0 && event.inputType === 'deleteContentBackward') {
-      
-        const prevInputId = "digit" + (parseInt(currentInputId.charAt(currentInputId.length - 1)) - 1);
-        document.getElementById(prevInputId)?.focus();
-    }
-}
+            }else if(e.key === "Backspace"){
+                
+                cde[idx - 1].focus();
+                setTimeout(()=>cde[idx - 1].focus(),10);
+            }
+        });        
+    });
