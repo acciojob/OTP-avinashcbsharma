@@ -1,6 +1,6 @@
 
 const cde = document.querySelectorAll('.code');
-const cds = document.getElementById("code-1");
+const cds = document.getElementById('code-1');
 cds[0].focus();
     
     cde.forEach((code,idx) => {
