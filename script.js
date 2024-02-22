@@ -1,18 +1,28 @@
-const inputs = document.querySelectorAll('input');
-    console.log(inputs);
-    inputs.forEach((code,idx) => {
-        inputs.addEventListener("keydown",(e) => {
-            
-            if( e.key >=0 && e.key <=9){
-                
-                inputs[idx + 1].focus();
-                setTimeout(()=>inputs[idx + 1].focus(),10);
-                
-            }else if(e.key === "Backspace"){
-                
-                inputs[idx - 1].focus();
-                setTimeout(()=>inputs[idx - 1].focus(),10);
-            }
-        });        
-    });
+const inputs = document.querySelectorAll("input");
+
+inputs.forEach((input,idx1) => {
+    inputs.addEventListener("keyup",(e) => {
+        const currentInput = input;
+        const nextInput = input.nextElementSibling;
+        const prevInput = input.previousElementSibling;
+        
+        if(currentInput.value.length > 1){
+            currentInput.value="";
+            return;
+        }
+        if(nextInput && nextInput.hasAttribute("disabled") && currentInput.value !==""){
+            nextInput.removeAttribute("disabled");
+            nextInput.focus();
+        }
+        if(e.key === "Backspace"){
+            inputs.forEach((input,idx2) => {
+                if(idx1 <= idx2 && prevInput){
+                    input.setAttribute("disabled",true);
+                    currentInput.value = "";
+                    prevInput.focus();
+                }
+            });
+        }
+    });        
+});
 window.addEventListener('load',()=> inputs[0].focus());
